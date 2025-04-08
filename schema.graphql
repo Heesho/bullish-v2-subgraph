@@ -1,0 +1,35 @@
+type Plugin @entity {
+  id: Bytes!
+  spankPrice: BigDecimal!
+  beraEarnedForTreasury: BigDecimal!
+  beraEarnedForDeveloper: BigDecimal!
+  beraEarnedForBribes: BigDecimal!
+  oBeroDistributedToSpankers: BigDecimal!
+  totalQueueBalance: BigDecimal!
+}
+
+type User @entity {
+  id: Bytes!
+  oBeroEarned: BigDecimal!
+  queueBalance: BigDecimal!
+  factories: [Factory!]! @derivedFrom(field: "account")
+}
+
+type Factory @entity {
+  id: String!
+  account: User!
+  moolaPerSecond: BigDecimal!
+  moolaProducedByFactory: BigDecimal!
+  moolaSpentOnFactory: BigDecimal!
+  spanks: BigInt!
+  moolaProducedBySpanking: BigDecimal!
+  beraSpentOnSpanking: BigDecimal!
+  tools: [Tool!]! @derivedFrom(field: "factory")
+}
+
+type Tool @entity {
+  id: String!
+  factory: Factory!
+  amount: BigInt!
+  level: BigInt!
+}

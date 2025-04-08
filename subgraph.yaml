@@ -1,0 +1,102 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Factory
+    network: berachain-bepolia
+    source:
+      address: "0x716991dFBb0D7935331a59DfEcbF4f23feECb93C"
+      abi: Factory
+      startBlock: 819195
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Factory
+        - Tool
+      abis:
+        - name: Factory
+          file: ./abis/Factory.json
+      eventHandlers:
+        - event: Factory__Claimed(indexed uint256,uint256)
+          handler: handleFactory__Claimed
+        - event: Factory__ToolPurchased(indexed uint256,uint256,uint256,uint256,uint256)
+          handler: handleFactory__ToolPurchased
+        - event: Factory__ToolUpgraded(indexed uint256,uint256,uint256,uint256,uint256)
+          handler: handleFactory__ToolUpgraded
+      file: ./src/factory.ts
+  - kind: ethereum
+    name: Bullas
+    network: berachain-bepolia
+    source:
+      address: "0xEB4b7929A5E084b2817Ee0085F9A2B94e2f4F226"
+      abi: Bullas
+      startBlock: 819195
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - Factory
+      abis:
+        - name: Bullas
+          file: ./abis/Bullas.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/bullas.ts
+  - kind: ethereum
+    name: Plugin
+    network: berachain-bepolia
+    source:
+      address: "0x436B9a684b6f26B34E9c353De05A0454b7996900"
+      abi: Plugin
+      startBlock: 819195
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Plugin
+        - Factory
+      abis:
+        - name: Plugin
+          file: ./abis/Plugin.json
+      eventHandlers:
+        - event: Plugin__ClickAdded(uint256,address,uint256,uint256,string)
+          handler: handlePlugin__ClickAdded
+        - event: Plugin__EntryFeeSet(uint256)
+          handler: handlePlugin__EntryFeeSet
+      file: ./src/plugin.ts
+  - kind: ethereum
+    name: Gauge
+    network: berachain-bepolia
+    source:
+      address: "0x1A579dc734BAB0F2b8259D69fdA2bA91537E356B"
+      abi: Gauge
+      startBlock: 819195
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Plugin
+        - User
+      abis:
+        - name: Gauge
+          file: ./abis/Gauge.json
+      eventHandlers:
+        - event: Gauge__Deposited(indexed address,uint256)
+          handler: handleGauge__Deposited
+        - event: Gauge__RewardNotified(indexed address,uint256)
+          handler: handleGauge__RewardNotified
+        - event: Gauge__RewardPaid(indexed address,indexed address,uint256)
+          handler: handleGauge__RewardPaid
+        - event: Gauge__Withdrawn(indexed address,uint256)
+          handler: handleGauge__Withdrawn
+      file: ./src/gauge.ts

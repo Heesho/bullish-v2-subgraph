@@ -1,0 +1,11 @@
+{
+  "berachain": {
+    "Factory": {
+      "address": "0x8d15Db9CeE68beF3beb65c576180e6D83F5c431D",
+      "startBlock": 833681
+    },
+    "Contract": {
+      "address": "0xD2C86EAB23dF8934db0323Ce3eb4CB49b2F6E933"
+    }
+  }
+}
