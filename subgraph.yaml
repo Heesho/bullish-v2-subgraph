@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: Factory
-    network: berachain-bepolia
+    network: berachain
     source:
-      address: "0x716991dFBb0D7935331a59DfEcbF4f23feECb93C"
+      address: "0x562DEf36D2BA2907A6c048b0D71ea36951442DD8"
       abi: Factory
-      startBlock: 819195
+      startBlock: 3000000
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -31,11 +31,11 @@ dataSources:
       file: ./src/factory.ts
   - kind: ethereum
     name: Bullas
-    network: berachain-bepolia
+    network: berachain
     source:
-      address: "0xEB4b7929A5E084b2817Ee0085F9A2B94e2f4F226"
+      address: "0x333814f5E16EEE61d0c0B03a5b6ABbD424B381c2"
       abi: Bullas
-      startBlock: 819195
+      startBlock: 780000
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -52,11 +52,11 @@ dataSources:
       file: ./src/bullas.ts
   - kind: ethereum
     name: Plugin
-    network: berachain-bepolia
+    network: berachain
     source:
-      address: "0x436B9a684b6f26B34E9c353De05A0454b7996900"
+      address: "0x784bb8fA1Db3413A1E98250fdce9Ddb7Eaf4BB0d"
       abi: Plugin
-      startBlock: 819195
+      startBlock: 3000000
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -75,11 +75,11 @@ dataSources:
       file: ./src/plugin.ts
   - kind: ethereum
     name: Gauge
-    network: berachain-bepolia
+    network: berachain
     source:
-      address: "0x1A579dc734BAB0F2b8259D69fdA2bA91537E356B"
+      address: "0x190A96f363B1ae23B8924BCB221Ca478bCBF3798"
       abi: Gauge
-      startBlock: 819195
+      startBlock: 3000000
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
