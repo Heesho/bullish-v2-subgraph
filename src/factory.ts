@@ -10,6 +10,7 @@ export function handleFactory__Claimed(event: Factory__ClaimedEvent): void {
   let factory = Factory.load(event.params.tokenId.toString());
   if (!factory) {
     factory = new Factory(event.params.tokenId.toString());
+    factory.tokenId = event.params.tokenId;
     factory.account = event.transaction.from;
     factory.moolaPerSecond = ZERO_BD;
     factory.moolaProducedByFactory = ZERO_BD;
@@ -31,6 +32,7 @@ export function handleFactory__ToolPurchased(
   let factory = Factory.load(event.params.tokenId.toString());
   if (!factory) {
     factory = new Factory(event.params.tokenId.toString());
+    factory.tokenId = event.params.tokenId;
     factory.account = event.transaction.from;
     factory.moolaPerSecond = ZERO_BD;
     factory.moolaProducedByFactory = ZERO_BD;
@@ -64,6 +66,7 @@ export function handleFactory__ToolUpgraded(
   let factory = Factory.load(event.params.tokenId.toString());
   if (!factory) {
     factory = new Factory(event.params.tokenId.toString());
+    factory.tokenId = event.params.tokenId;
     factory.account = event.transaction.from;
     factory.moolaPerSecond = ZERO_BD;
     factory.moolaProducedByFactory = ZERO_BD;

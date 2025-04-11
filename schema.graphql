@@ -17,6 +17,7 @@ type User @entity {
 
 type Factory @entity {
   id: String!
+  tokenId: BigInt!
   account: User!
   moolaPerSecond: BigDecimal!
   moolaProducedByFactory: BigDecimal!

@@ -14,6 +14,7 @@ export function handleTransfer(event: TransferEvent): void {
   let factory = Factory.load(event.params.tokenId.toString());
   if (!factory) {
     factory = new Factory(event.params.tokenId.toString());
+    factory.tokenId = event.params.tokenId;
     factory.account = event.params.to;
     factory.moolaPerSecond = ZERO_BD;
     factory.moolaProducedByFactory = ZERO_BD;
